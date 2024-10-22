@@ -16,9 +16,11 @@ export default function Index() {
         <Text className="font-semibold text-white text-lg text-center px-4 ">
           Learn more details about the whole planets in the universe
         </Text>
-        <TouchableOpacity className="bg-black text-white bg-opacity-10 justify-center items-center py-3 rounded-2xl" onPress={() => router.navigate('/(tabs)')}>
+        <View className="px-3">
+        <TouchableOpacity className="bg-black  text-white bg-opacity-10 justify-center items-center py-3 rounded-2xl" onPress={() => router.navigate('/(tabs)')}>
           <Text className="text-white text-2xl font-semibold">Get started</Text>
         </TouchableOpacity>
+        </View>
       </View>
     </View>
   );

@@ -1,9 +1,10 @@
-import { IPlanet } from "./globals";
 
-export const plenetaryData: IPlanet[] = [
+import { IPlanet, spaceData } from "./globals";
+
+export const planetaryData: IPlanet[] = [
   {
     id: 1,
-    imgSrc: "../assets/images/mercury.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Mercury",
     nickName: "The Swift Planet",
     mass: 3.285e23,
@@ -29,7 +30,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 2,
-    imgSrc: "../assets/images/venus.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Venus",
     nickName: "The Evening Star",
     mass: 4.867e24,
@@ -57,7 +58,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 3,
-    imgSrc: "../assets/images/earth.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Earth",
     nickName: "The Blue Planet",
     mass: 5.972e24,
@@ -87,7 +88,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 4,
-    imgSrc: "../assets/images/mars.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Mars",
     nickName: "The Red Planet",
     mass: 6.39e23,
@@ -118,7 +119,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 5,
-    imgSrc: "../assets/images/jupiter.png",
+    imgSrc:require( "@/assets/images/venus 1.png"),
     name: "Jupiter",
     nickName: "The Giant Planet",
     mass: 1.898e27,
@@ -145,7 +146,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 6,
-    imgSrc: "../assets/images/saturn.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Saturn",
     nickName: "The Ringed Planet",
     mass: 5.683e26,
@@ -172,7 +173,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 7,
-    imgSrc: "../assets/images/uranus.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Uranus",
     nickName: "The Sideways Planet",
     mass: 8.681e25,
@@ -200,7 +201,7 @@ export const plenetaryData: IPlanet[] = [
   },
   {
     id: 8,
-    imgSrc: "../assets/images/neptune.png",
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Neptune",
     nickName: "The Windy Planet",
     mass: 1.024e26,
@@ -226,4 +227,8 @@ export const plenetaryData: IPlanet[] = [
     composition: ["Ice Giant"],
     magneticFieldStrength: 0.00034,
   },
+];
+
+export const Data: spaceData[] = [
+  ...planetaryData.map((data) => ({ ...data, type:'planet' })),
 ];

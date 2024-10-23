@@ -1,6 +1,9 @@
+import { ImageSourcePropType } from "react-native";
+
+type imgType = Record<string , ImageSourcePropType>
 export interface IPlanet {
   id: number;
-  imgSrc?: string;
+  imgSrc?: imgType;
   name?: string;
   nickName?: string;
   mass?: number; // in kilograms
@@ -27,6 +30,12 @@ export interface IPlanet {
   composition?: string[]; // e.g., rocky, gas, etc.
   magneticFieldStrength?: number; // in Tesla
   waterPresence?: boolean;
+  type?: string
 
   [description: string]: any; // index signature to allow additional properties
+}
+
+export interface spaceData {
+   type?:string
+  [description: string]: any; 
 }

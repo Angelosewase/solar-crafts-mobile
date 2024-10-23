@@ -1,61 +1,66 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, FlatList } from 'react-native';
+import { Data } from "@/assets/data/defaults";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 
-// Define the structure of a space body
-interface SpaceBody {
-  name: string;
-  type: 'planet' | 'star' | 'messier';
-}
-
-// Sample array of space bodies
-const spaceBodies: SpaceBody[] = [
-  { name: 'Earth', type: 'planet' },
-  { name: 'Sun', type: 'star' },
-  { name: 'Andromeda', type: 'messier' },
-  { name: 'Jupiter', type: 'planet' },
-  { name: 'Betelgeuse', type: 'star' },
-  { name: 'Orion Nebula', type: 'messier' },
-];
 
 const TabComponent: React.FC = () => {
-  const [selectedCategory, setSelectedCategory] = useState<'all' | 'planet' | 'star' | 'messier'>('all');
 
-  // Function to filter space bodies based on the selected category
+  const [selectedCategory, setSelectedCategory] = useState<
+    "all" | "planet" | "star" | "messier"
+  >("all");
+
   const filterSpaceBodies = () => {
-    if (selectedCategory === 'all') {
-      return spaceBodies;
+    if (selectedCategory === "all") {
+      return Data.slice(0,2);
     }
-    return spaceBodies.filter((body) => body.type === selectedCategory);
+    return Data.filter((body) => body.type === selectedCategory).slice(0,2);
   };
 
-  // Array of categories
-  const categories: Array<'all' | 'planet' | 'star' | 'messier'> = ['all', 'planet', 'star', 'messier'];
+  const categories: Array<"all" | "planet" | "star" | "messier"> = [
+    "all",
+    "planet",
+    "star",
+    "messier",
+  ];
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
-      {/* Render Tabs */}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: 16 }}>
-        {categories.map((category) => (
+    <View className="mt-8">
+      <View className="flex-row justify-between pb-2 mb-12">
+        {categories.map((category, idx) => (
           <TouchableOpacity
-            key={category}
-            onPress={() => setSelectedCategory(category)} 
+            key={idx}
+            onPress={() => setSelectedCategory(category)}
           >
-            <Text style={{ color: selectedCategory === category ? 'blue' : 'black' }}>{category}</Text>
+            <Text
+              className={`text-white text-xl ${
+                selectedCategory === category ? "text-blue-500" : ""
+              }`}
+            >
+              {category}
+            </Text>
           </TouchableOpacity>
         ))}
       </View>
-
-      {/* Render List of Space Bodies */}
-      <FlatList
-        data={filterSpaceBodies()}
-        keyExtractor={(item) => item.name}
-        renderItem={({ item }) => (
-          <View style={{ padding: 10, borderBottomWidth: 1, borderBottomColor: '#ccc' }}>
-            <Text style={{ fontSize: 18 }}>{item.name}</Text>
-            <Text style={{ color: 'gray' }}>{item.type}</Text>
+      <View className="flex-row flex-wrap justify-between">
+        {filterSpaceBodies().map((item) => (
+          <View
+            key={item.name}
+            className="w-[47%] items-start  h-[200px]  mb-4 bg-[#121212] justify-end pt-20 px-5 rounded-xl"
+          >
+          
+            <Image source={item.imgSrc} className="absolute -top-8 right-10 rounded-full h-24 w-24 z-10" />
+            <Text className="text-white text-3xl font-bold mb-2">{item.name}</Text>
+            <Text className="text-white  text-base mb-2">{item.nickName}</Text>
+            <TouchableOpacity className="ml-auto">
+              <Text className="text-blue-500 text-4xl">
+              &gt;
+              </Text>
+             
+            </TouchableOpacity>
           </View>
-        )}
-      />
+        ))}
+      </View>
+
     </View>
   );
 };

@@ -22,9 +22,9 @@ const TabsLayout = () => {
       }}
     >
       <Tabs.Screen
-        name="Home"
+        name="index"
         options={{
-          tabBarLabel: "home",
+          tabBarLabel: "Home",
           tabBarHideOnKeyboard: true,
           tabBarShowLabel: false,
           tabBarIcon: ({ color, focused }) => (

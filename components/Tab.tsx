@@ -55,7 +55,7 @@ const TabComponent: React.FC = () => {
           >
           
             <Image source={item.imgSrc} className="absolute -top-8 right-10 rounded-full h-24 w-24 z-10" />
-            <Text className="text-white text-3xl font-bold mb-2">{item.name}</Text>
+            <Text className="text-white text-3xl font-bold mb-2 mt-auto">{item.name}</Text>
             <Text className="text-white  text-base mb-2">{item.nickName}</Text>
             <TouchableOpacity className="ml-auto" onPress={() => handleClick(item.id)}>
               <Text className="text-blue-500 text-4xl">

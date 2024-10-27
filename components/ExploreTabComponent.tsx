@@ -45,29 +45,81 @@ const ExploreTabComponent = () => {
         ))}
       </View>
       <ScrollView className=" space-y-3 mb-44">
-        {filterSpaceBodies().map((item) => (
-          <TouchableOpacity
-            className="w-full flex-row justify-between"
-            key={item.name}
-            onPress={() => handleClick(item.id)}
-          >
-            <View className="w-[50%] items-start  h-[155px]  mb-4 bg-[#121212] pt-5 px-5  rounded-xl">
-              <Image
-                source={item.imgSrc}
-                className="rounded-full  h-14 w-14 z-10"
-              />
-              <Text className="text-white text-2xl font-bold mb-2">
-                {item.name}
-              </Text>
-              <Text className="text-white  text-base mb-2">
-                {item.nickName}
-              </Text>
-            </View>
-            <TouchableOpacity>
-              <EllipsisVerticalIcon size={30} color={"white"} />
+        {filterSpaceBodies().map((item) => {
+
+          if(item.type === 'planet'){
+          return (
+            <TouchableOpacity
+              className="w-full flex-row justify-between"
+              key={item.name}
+              onPress={() => handleClick(item.id)}
+            >
+              <View className="w-[50%] items-start  h-[155px]  mb-4 bg-[#121212] pt-5 px-5  rounded-xl">
+                <Image
+                  source={item.imgSrc}
+                  className="rounded-full  h-14 w-14 z-10"
+                />
+                <Text className="text-white text-2xl font-bold mb-2">
+                  {item.name}
+                </Text>
+                <Text className="text-white  text-base mb-2">
+                  {item.nickName}
+                </Text>
+              </View>
+              <TouchableOpacity>
+                <EllipsisVerticalIcon size={30} color={"white"} />
+              </TouchableOpacity>
             </TouchableOpacity>
-          </TouchableOpacity>
-        ))}
+          );
+          }else if(item.type === 'star'){
+            return (
+              <TouchableOpacity
+                className="w-full flex-row justify-between"
+                key={item.name}
+              >
+                <View className="w-[50%] items-start  h-[155px]  mb-4 bg-[#121212] pt-5 px-5  rounded-xl">
+                  <Image
+                    source={item.imgSrc}
+                    className="rounded-full  h-14 w-14 z-10"
+                  />
+                  <Text className="text-white text-2xl font-bold mb-2">
+                    {item.name}
+                  </Text>
+                  <Text className="text-white  text-base mb-2">
+                    {item.nickName}
+                  </Text>
+                </View>
+                <TouchableOpacity>
+                  <EllipsisVerticalIcon size={30} color={"white"} />
+                </TouchableOpacity>
+              </TouchableOpacity>
+            );
+          }else{  
+            return (
+              <TouchableOpacity
+                className="w-full flex-row justify-between"
+                key={item.name}
+              >
+                <View className="w-[50%] items-start  h-[155px]  mb-4 bg-[#121212] pt-5 px-5  rounded-xl">
+                  <Image
+                    source={item.imgSrc}
+                    className="rounded-full  h-14 w-14 z-10"
+                  />
+                  <Text className="text-white text-2xl font-bold mb-2">
+                    {item.name}
+                  </Text>
+                  <Text className="text-white  text-base mb-2">
+                    {item.nickName}
+                  </Text>
+                </View>
+                <TouchableOpacity>
+                  <EllipsisVerticalIcon size={30} color={"white"} />
+                </TouchableOpacity>
+              </TouchableOpacity>
+            );
+          }
+    
+        })}
       </ScrollView>
     </View>
   );

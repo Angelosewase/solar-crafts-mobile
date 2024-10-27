@@ -234,7 +234,7 @@ export const planetaryData: IPlanet[] = [
 export const messierData: IMessier[] = [
   {
     id: 1,
-    imgSrc: { main: placeholderImage },
+    imgSrc:  placeholderImage,
     name: "Andromeda Galaxy",
     catalogNumber: "M31",
     type: "Galaxy",
@@ -254,7 +254,7 @@ export const messierData: IMessier[] = [
   },
   {
     id: 2,
-    imgSrc: { main: placeholderImage },
+    imgSrc: placeholderImage ,
     name: "Orion Nebula",
     catalogNumber: "M42",
     type: "Nebula",
@@ -317,4 +317,6 @@ export const starData: IStar[] = [
 
 export const Data: spaceData[] = [
   ...planetaryData.map((data) => ({ ...data, type: "planet" })),
+  ...messierData.map((data) => ({ ...data, type: "messier" })),
+  ...starData.map((data) => ({ ...data, type: "star" })),
 ];

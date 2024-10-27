@@ -5,8 +5,16 @@ import SearchInput from "@/components/Search";
 import { Ionicons } from "@expo/vector-icons";
 import TabComponent from "@/components/Tab";
 import { Data } from "@/assets/data/defaults";
+import { useNavigation, useRouter } from "expo-router";
 
 export default function Index() {
+   const nav = useNavigation();
+   const router = useRouter()
+
+   function handleClick(id:string) {
+     router.navigate(`/${id}`);
+   }
+
   return (
     <View className="bg-black flex-1 px-5">
       <View className="w-full items-center justify-between flex-row mt-10">
@@ -33,7 +41,8 @@ export default function Index() {
       <View className="w-full">
         <TabComponent />
       </View>
-      <View className="mt-2">
+
+      <View className="mt-auto mb-14">
         <View className="flex-row justify-between mb-2">
           <Text className="text-xl text-white font-bold p-0.5">
             You may also like{" "}
@@ -42,7 +51,7 @@ export default function Index() {
             <Text className="text-xl text-blue-500 p-0.5">Explore</Text>
           </TouchableOpacity>
         </View>
-        <View className="w-full flex-row   h-[180px]   bg-[#121212] rounded-xl">
+        <TouchableOpacity className="w-full flex-row   h-[180px]   bg-[#121212] rounded-xl" onPress={() => handleClick(Data[0].id)}>
           <View className="w-[45%] justify-center items-center">
             <Image source={Data[0].imgSrc} className="w-[140px]  h-[140px] " />
           </View>
@@ -55,8 +64,11 @@ export default function Index() {
               modi, expedita quis atque ullam delectus,{" "}
             </Text>
           </View>
-        </View>
+        </TouchableOpacity>
       </View>
+
+
+
     </View>
   );
 }

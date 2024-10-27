@@ -1,10 +1,12 @@
+import { ImageSourcePropType } from "react-native";
+import { IMessier, imgType, IPlanet, IStar, spaceData } from "./globals";
 
-import { IPlanet, spaceData } from "./globals";
+const placeholderImage: imgType = require("@/assets/images/venus 1.png");
 
 export const planetaryData: IPlanet[] = [
   {
     id: 1,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Mercury",
     nickName: "The Swift Planet",
     mass: 3.285e23,
@@ -30,7 +32,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 2,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Venus",
     nickName: "The Evening Star",
     mass: 4.867e24,
@@ -58,7 +60,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 3,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Earth",
     nickName: "The Blue Planet",
     mass: 5.972e24,
@@ -88,7 +90,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 4,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Mars",
     nickName: "The Red Planet",
     mass: 6.39e23,
@@ -119,7 +121,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 5,
-    imgSrc:require( "@/assets/images/venus 1.png"),
+    imgSrc: require("@/assets/images/venus 1.png"),
     name: "Jupiter",
     nickName: "The Giant Planet",
     mass: 1.898e27,
@@ -146,7 +148,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 6,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Saturn",
     nickName: "The Ringed Planet",
     mass: 5.683e26,
@@ -173,7 +175,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 7,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Uranus",
     nickName: "The Sideways Planet",
     mass: 8.681e25,
@@ -201,7 +203,7 @@ export const planetaryData: IPlanet[] = [
   },
   {
     id: 8,
-    imgSrc: require("@/assets/images/venus 1.png"),
+    imgSrc: placeholderImage,
     name: "Neptune",
     nickName: "The Windy Planet",
     mass: 1.024e26,
@@ -229,6 +231,90 @@ export const planetaryData: IPlanet[] = [
   },
 ];
 
+export const messierData: IMessier[] = [
+  {
+    id: 1,
+    imgSrc: { main: placeholderImage },
+    name: "Andromeda Galaxy",
+    catalogNumber: "M31",
+    type: "Galaxy",
+    distanceFromEarth: 2537000, // in light-years
+    apparentMagnitude: 3.4,
+    constellation: "Andromeda",
+    discoveryDate: "964-01-01",
+    discoveredBy: "Abd al-Rahman al-Sufi",
+    size: {
+      diameter: 220000, // in light-years
+    },
+    composition: ["Stars", "Dust", "Dark Matter"],
+    visibility: {
+      bestSeenFrom: "Northern Hemisphere",
+      visibleNakedEye: true,
+    },
+  },
+  {
+    id: 2,
+    imgSrc: { main: placeholderImage },
+    name: "Orion Nebula",
+    catalogNumber: "M42",
+    type: "Nebula",
+    distanceFromEarth: 1344, // in light-years
+    apparentMagnitude: 4.0,
+    constellation: "Orion",
+    discoveryDate: "1610-11-26",
+    discoveredBy: "Nicolas-Claude Fabri de Peiresc",
+    size: {
+      diameter: 24, // in light-years
+    },
+    composition: ["Hydrogen", "Helium", "Dust"],
+    visibility: {
+      bestSeenFrom: "Both Hemispheres",
+      visibleNakedEye: true,
+    },
+  },
+];
+
+export const starData: IStar[] = [
+  {
+    id: 1,
+    imgSrc: placeholderImage,
+    name: "Betelgeuse",
+    constellation: "Orion",
+    spectralType: "M1-2 Ia-ab",
+    distanceFromEarth: 642.5, // in light-years
+    apparentMagnitude: 0.42,
+    absoluteMagnitude: -5.85,
+    radius: 887, // in solar radii
+    temperature: {
+      surface: 3500, // in Kelvin
+    },
+    mass: 18, // in solar masses
+    luminosity: 126000, // in solar luminosities
+    age: 8, // in millions of years
+    discoveredBy: "Ancient Observers",
+    discoveryDate: "Prehistory",
+  },
+  {
+    id: 2,
+    imgSrc: placeholderImage,
+    name: "Sirius",
+    constellation: "Canis Major",
+    spectralType: "A1V",
+    distanceFromEarth: 8.6, // in light-years
+    apparentMagnitude: -1.46,
+    absoluteMagnitude: 1.42,
+    radius: 1.711, // in solar radii
+    temperature: {
+      surface: 9940, // in Kelvin
+    },
+    mass: 2.1, // in solar masses
+    luminosity: 25.4, // in solar luminosities
+    age: 0.242, // in billions of years
+    discoveredBy: "Ancient Egyptians",
+    discoveryDate: "Prehistory",
+  },
+];
+
 export const Data: spaceData[] = [
-  ...planetaryData.map((data) => ({ ...data, type:'planet' })),
+  ...planetaryData.map((data) => ({ ...data, type: "planet" })),
 ];

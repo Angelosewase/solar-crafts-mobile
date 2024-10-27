@@ -17,6 +17,17 @@ export default function RootLayout() {
           statusBarColor: "black",
         }}
       />
+
+      <Stack.Screen
+        name="[planetId]"
+        options={{
+          statusBarStyle: "auto",
+          statusBarColor: "black",
+          headerShown: false,
+          animation: "slide_from_right",
+        }}
+      
+      />
     </Stack>
   );
 }

@@ -1,9 +1,11 @@
 import { Data } from "@/assets/data/defaults";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Image } from "react-native";
 
 
 const TabComponent: React.FC = () => {
+  const router = useRouter()
 
   const [selectedCategory, setSelectedCategory] = useState<
     "all" | "planet" | "star" | "messier"
@@ -22,6 +24,10 @@ const TabComponent: React.FC = () => {
     "star",
     "messier",
   ];
+
+  function handleClick(id:string) {
+    router.navigate(`/${id}`);
+  }
 
   return (
     <View className="mt-8">
@@ -51,7 +57,7 @@ const TabComponent: React.FC = () => {
             <Image source={item.imgSrc} className="absolute -top-8 right-10 rounded-full h-24 w-24 z-10" />
             <Text className="text-white text-3xl font-bold mb-2">{item.name}</Text>
             <Text className="text-white  text-base mb-2">{item.nickName}</Text>
-            <TouchableOpacity className="ml-auto">
+            <TouchableOpacity className="ml-auto" onPress={() => handleClick(item.id)}>
               <Text className="text-blue-500 text-4xl">
               &gt;
               </Text>

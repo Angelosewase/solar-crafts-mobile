@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity, KeyboardAvoidingView } from "react-native";
 import React, { useState } from "react";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import SearchInput from "@/components/Search";
@@ -47,10 +47,13 @@ export default function Index() {
           <Text className="text-xl text-white font-bold p-0.5">
             You may also like{" "}
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>router.navigate("/(tabs)/Explore")}>
             <Text className="text-xl text-blue-500 p-0.5">Explore</Text>
           </TouchableOpacity>
         </View>
+
+        
+        <KeyboardAvoidingView  className="w-full" behavior="padding" >
         <TouchableOpacity className="w-full flex-row   h-[180px]   bg-[#121212] rounded-xl" onPress={() => handleClick(Data[0].id)}>
           <View className="w-[45%] justify-center items-center">
             <Image source={Data[0].imgSrc} className="w-[140px]  h-[140px] " />
@@ -65,6 +68,7 @@ export default function Index() {
             </Text>
           </View>
         </TouchableOpacity>
+        </KeyboardAvoidingView>
       </View>
 
 
